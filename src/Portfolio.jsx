@@ -77,11 +77,10 @@ export default function Portfolio({
       }`}
       style={{ fontFamily: "Bitter, serif" }}
     >
+      {/* Navigation */}
       <nav
         className={`flex justify-between items-center px-6 py-5 border-b shadow-sm transition-colors duration-500 ${
-          darkMode
-            ? "bg-slate-800 border-slate-700"
-            : "bg-white border-slate-200"
+          darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
         }`}
       >
         <div className="flex-1 flex justify-center gap-4">
@@ -114,6 +113,7 @@ export default function Portfolio({
         </button>
       </nav>
 
+      {/* Hero */}
       <section className="flex flex-col items-center justify-center text-center px-10 py-20 gap-8">
         <motion.img
           src={myPhoto}
@@ -141,6 +141,7 @@ export default function Portfolio({
               LinkedIn
             </a>
 
+            {/* ✅ FIXED RESUME LINK */}
             <a
               href={`${import.meta.env.BASE_URL}Gustavo_Juscamayta_Resume.pdf`}
               target="_blank"
@@ -166,34 +167,15 @@ export default function Portfolio({
             </a>
           </div>
 
-          <h2
-            className={`text-5xl font-bold mb-5 ${
-              darkMode ? "text-white" : "text-slate-900"
-            }`}
-          >
+          <h2 className={`text-5xl font-bold mb-5 ${darkMode ? "text-white" : "text-slate-900"}`}>
             Hello, I'm Gustavo Juscamayta
           </h2>
 
-          <p
-            className={`text-xl leading-relaxed ${
-              darkMode ? "text-slate-400" : "text-slate-600"
-            }`}
-          >
-            Welcome to my digital portfolio. I am a UCF student passionate about
-            technology and innovation.
+          <p className={`text-xl leading-relaxed ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+            Welcome to my digital portfolio. I am a UCF student passionate about technology and innovation.
           </p>
         </div>
       </section>
-
-      <footer
-        className={`text-center p-6 mt-10 transition-colors duration-500 ${
-          darkMode
-            ? "bg-slate-800 text-slate-400"
-            : "bg-slate-900 text-slate-400"
-        }`}
-      >
-        <p>© 2026 Gustavo Juscamayta. All rights reserved.</p>
-      </footer>
     </div>
   );
 }
