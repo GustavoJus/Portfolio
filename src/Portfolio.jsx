@@ -132,6 +132,7 @@ export default function Portfolio({
 
         <div className="max-w-2xl">
           <div className="flex justify-center gap-4 flex-wrap mb-8">
+            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/gustavo-juscamayta"
               target="_blank"
@@ -145,10 +146,9 @@ export default function Portfolio({
               LinkedIn
             </a>
 
+            {/* View Resume */}
             <a
-              href={`${
-                import.meta.env.BASE_URL
-              }Gustavo_Juscamayta_Resume.pdf`}
+              href="https://gustavojus.github.io/Portfolio/Gustavo_Juscamayta_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
@@ -160,6 +160,7 @@ export default function Portfolio({
               View Resume
             </a>
 
+            {/* Email */}
             <a
               href="mailto:gmgjramirez@gmail.com"
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
