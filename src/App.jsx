@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Portfolio from "./Portfolio";
 import About from "./About";
 import Resume from "./Resume";
@@ -12,13 +12,13 @@ export default function App() {
   const sharedProps = { darkMode, setDarkMode, activePage, setActivePage };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Portfolio {...sharedProps} />} />
         <Route path="/about" element={<About {...sharedProps} />} />
         <Route path="/resume" element={<Resume {...sharedProps} />} />
         <Route path="/projects" element={<Projects {...sharedProps} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
