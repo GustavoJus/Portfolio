@@ -73,18 +73,13 @@ export default function Portfolio({
   return (
     <div
       className={`min-h-screen transition-colors duration-500 ${
-        darkMode
-          ? "bg-slate-900 text-slate-100"
-          : "bg-slate-50 text-slate-800"
+        darkMode ? "bg-slate-900 text-slate-100" : "bg-slate-50 text-slate-800"
       }`}
       style={{ fontFamily: "Bitter, serif" }}
     >
-      {/* Navigation */}
       <nav
         className={`flex justify-between items-center px-6 py-5 border-b shadow-sm transition-colors duration-500 ${
-          darkMode
-            ? "bg-slate-800 border-slate-700"
-            : "bg-white border-slate-200"
+          darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
         }`}
       >
         <div className="flex-1 flex justify-center gap-4">
@@ -117,7 +112,6 @@ export default function Portfolio({
         </button>
       </nav>
 
-      {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-10 py-20 gap-8">
         <motion.img
           src={myPhoto}
@@ -132,7 +126,6 @@ export default function Portfolio({
 
         <div className="max-w-2xl">
           <div className="flex justify-center gap-4 flex-wrap mb-8">
-            {/* LinkedIn */}
             <a
               href="https://www.linkedin.com/in/gustavo-juscamayta"
               target="_blank"
@@ -146,9 +139,8 @@ export default function Portfolio({
               LinkedIn
             </a>
 
-            {/* View Resume */}
             <a
-              href="https://gustavojus.github.io/Portfolio/Gustavo_Juscamayta_Resume.pdf"
+              href="/Portfolio/Gustavo_Juscamayta_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
@@ -160,7 +152,6 @@ export default function Portfolio({
               View Resume
             </a>
 
-            {/* Email */}
             <a
               href="mailto:gmgjramirez@gmail.com"
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
@@ -186,89 +177,18 @@ export default function Portfolio({
               darkMode ? "text-slate-400" : "text-slate-600"
             }`}
           >
-            Welcome to my digital portfolio. I am a UCF student passionate
-            about technology and innovation. This website showcases my projects,
-            skills, experience, and creative work.
+            Welcome to my digital portfolio. I am a UCF student passionate about
+            technology and innovation.
           </p>
         </div>
       </section>
 
-      {/* Divider */}
-      <div
-        className={`w-16 h-1 rounded-full mx-auto mb-16 ${
-          darkMode ? "bg-slate-700" : "bg-slate-300"
-        }`}
-      />
-
-      {/* Tech Stack */}
-      <section className="px-10 pb-20 text-center max-w-4xl mx-auto">
-        <h3
-          className={`text-4xl font-semibold mb-2 ${
-            darkMode ? "text-white" : "text-slate-900"
-          }`}
-        >
-          Tech Stack
-        </h3>
-
-        <p
-          className={`text-lg mb-10 ${
-            darkMode ? "text-slate-400" : "text-slate-500"
-          }`}
-        >
-          Tools and technologies I work with
-        </p>
-
-        <div className="mb-8 text-left">
-          <p
-            className={`text-sm font-semibold uppercase tracking-widest mb-4 ${
-              darkMode ? "text-slate-500" : "text-slate-400"
-            }`}
-          >
-            Development
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {devSkills.map((skill) => skillCard(skill))}
-          </div>
-        </div>
-
-        <div className="mb-8 text-left">
-          <p
-            className={`text-sm font-semibold uppercase tracking-widest mb-4 ${
-              darkMode ? "text-slate-500" : "text-slate-400"
-            }`}
-          >
-            Creative & Media
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {creativeSkills.map((skill) => skillCard(skill))}
-          </div>
-        </div>
-
-        <div className="text-left">
-          <p
-            className={`text-sm font-semibold uppercase tracking-widest mb-4 ${
-              darkMode ? "text-slate-500" : "text-slate-400"
-            }`}
-          >
-            Languages
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {languageSkills.map((skill) => skillCard(skill, true))}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
       <footer
         className={`text-center p-6 mt-10 transition-colors duration-500 ${
-          darkMode
-            ? "bg-slate-800 text-slate-400"
-            : "bg-slate-900 text-slate-400"
+          darkMode ? "bg-slate-800 text-slate-400" : "bg-slate-900 text-slate-400"
         }`}
       >
-        <p className="text-lg">
-          © 2026 Gustavo Juscamayta. All rights reserved.
-        </p>
+        <p>© 2026 Gustavo Juscamayta. All rights reserved.</p>
       </footer>
     </div>
   );
