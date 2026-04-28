@@ -79,7 +79,9 @@ export default function Portfolio({
     >
       <nav
         className={`flex justify-between items-center px-6 py-5 border-b shadow-sm transition-colors duration-500 ${
-          darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
+          darkMode
+            ? "bg-slate-800 border-slate-700"
+            : "bg-white border-slate-200"
         }`}
       >
         <div className="flex-1 flex justify-center gap-4">
@@ -140,7 +142,7 @@ export default function Portfolio({
             </a>
 
             <a
-              href="/Portfolio/Gustavo_Juscamayta_Resume.pdf"
+              href={`${import.meta.env.BASE_URL}Gustavo_Juscamayta_Resume.pdf`}
               target="_blank"
               rel="noopener noreferrer"
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
@@ -185,7 +187,9 @@ export default function Portfolio({
 
       <footer
         className={`text-center p-6 mt-10 transition-colors duration-500 ${
-          darkMode ? "bg-slate-800 text-slate-400" : "bg-slate-900 text-slate-400"
+          darkMode
+            ? "bg-slate-800 text-slate-400"
+            : "bg-slate-900 text-slate-400"
         }`}
       >
         <p>© 2026 Gustavo Juscamayta. All rights reserved.</p>
