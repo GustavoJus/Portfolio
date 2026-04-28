@@ -15,7 +15,6 @@ import {
   Languages,
 } from "lucide-react";
 import myPhoto from "./assets/myphoto.jpeg";
-import resume from "./assets/Gustavo_Juscamayta_Resume.pdf";
 
 const devSkills = [
   { name: "HTML", icon: <Globe size={22} /> },
@@ -123,9 +122,10 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
         <div className="max-w-2xl">
           <div className="flex justify-center gap-4 flex-wrap mb-8">
             <a
-              href="https://www.linkedin.com/in/gustavo-juscamayta"
+              href={`${import.meta.env.BASE_URL}Gustavo_Juscamayta_Resume.pdf`}
               target="_blank"
               rel="noopener noreferrer"
+              >
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
                 darkMode
                   ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-500"
