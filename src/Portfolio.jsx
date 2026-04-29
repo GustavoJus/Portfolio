@@ -15,7 +15,8 @@ import {
   Languages,
 } from "lucide-react";
 import myPhoto from "./assets/myphoto.jpeg";
-import resume from "./assets/Gustavo_Juscamayta_Resume.pdf";
+
+const RESUME_PATH = "/Gustavo_Juscamayta_Resume.pdf";
 
 const devSkills = [
   { name: "HTML", icon: <Globe size={22} /> },
@@ -49,13 +50,14 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
 
   const skillCard = (skill, small = false) => (
     <motion.div
+      key={skill.name}
       whileHover={{ scale: 1.05 }}
-      className={`flex items-center gap-2 rounded-xl border ${
+      className={`flex items-center gap-2 rounded-xl border transition-all duration-300 cursor-default ${
         small ? "px-4 py-2 text-base" : "px-5 py-3 text-lg"
       } ${
         darkMode
-          ? "bg-slate-800 border-slate-700 text-slate-300"
-          : "bg-white border-slate-200 text-slate-700"
+          ? "bg-slate-800 border-slate-700 text-slate-300 hover:border-blue-500 hover:text-white"
+          : "bg-white border-slate-200 text-slate-700 hover:border-blue-400 hover:text-slate-900"
       }`}
     >
       <span className={darkMode ? "text-blue-400" : "text-blue-600"}>{skill.icon}</span>
@@ -64,22 +66,29 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
   );
 
   return (
-    <div className={`min-h-screen ${darkMode ? "bg-slate-900 text-slate-100" : "bg-slate-50 text-slate-800"}`}>
-
-      <nav className={`flex justify-between items-center px-6 py-5 border-b ${
-        darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
-      }`}>
+    <div
+      className={`min-h-screen transition-colors duration-500 ${
+        darkMode ? "bg-slate-900 text-slate-100" : "bg-slate-50 text-slate-800"
+      }`}
+      style={{ fontFamily: "Bitter, serif" }}
+    >
+      {/* Navigation */}
+      <nav
+        className={`flex justify-between items-center px-6 py-5 border-b shadow-sm transition-colors duration-500 ${
+          darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
+        }`}
+      >
         <div className="flex-1 flex justify-center gap-4">
           {["Home", "About", "Resume", "Projects"].map((item) => (
             <button
               key={item}
               onClick={() => handleNav(item)}
-              className={`px-6 py-2.5 rounded-xl border ${
+              className={`px-6 py-2.5 text-base rounded-xl border transition-all duration-300 hover:scale-105 ${
                 activePage === item
                   ? "bg-blue-600 text-white border-blue-600"
                   : darkMode
-                  ? "border-slate-600 text-slate-300"
-                  : "border-slate-300 text-slate-700"
+                  ? "border-slate-600 text-slate-300 hover:bg-slate-100 hover:text-slate-900"
+                  : "border-slate-300 text-slate-700 hover:bg-slate-800 hover:text-white"
               }`}
             >
               {item}
@@ -87,33 +96,216 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
           ))}
         </div>
 
-        <button onClick={() => setDarkMode(!darkMode)} className="px-6 py-2.5 rounded-xl border">
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className={`px-6 py-2.5 text-base rounded-xl border transition-all duration-300 hover:scale-105 ${
+            darkMode
+              ? "border-slate-600 text-slate-300 hover:bg-slate-100 hover:text-slate-900"
+              : "border-slate-300 text-slate-700 hover:bg-slate-800 hover:text-white"
+          }`}
+        >
           {darkMode ? "Light Mode" : "Dark Mode"}
         </button>
       </nav>
 
-      <section className="flex flex-col items-center text-center px-10 py-20 gap-8">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center px-10 py-20 gap-8">
         <motion.img
           src={myPhoto}
-          className="w-52 h-52 rounded-full border-4 object-cover"
+          alt="Profile"
+          className={`w-52 h-52 rounded-full shadow-lg border-4 object-cover ${
+            darkMode ? "border-slate-600" : "border-slate-200"
+          }`}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
         />
+        <div className="max-w-2xl">
+          <div className="flex justify-center gap-4 flex-wrap mb-8">
+            <a
+              href="https://www.linkedin.com/in/gustavo-juscamayta"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-500"
+                  : "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              LinkedIn
+            </a>
+            <a
+              href={RESUME_PATH}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-500"
+                  : "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              View Resume
+            </a>
+            <a
+              href="mailto:gmgjramirez@gmail.com"
+              className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-500"
+                  : "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              Email Me
+            </a>
+          </div>
 
-        <div className="flex gap-4 flex-wrap">
-          <a href="https://www.linkedin.com/in/gustavo-juscamayta" className="px-6 py-3 bg-blue-600 text-white rounded-xl">
-            LinkedIn
-          </a>
+          <h2 className={`text-5xl font-bold mb-5 ${darkMode ? "text-white" : "text-slate-900"}`}>
+            Hello, I'm Gustavo Juscamayta
+          </h2>
+          <p className={`text-xl leading-relaxed ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+            Welcome to my digital portfolio. I am a UCF student passionate about technology and innovation. This website showcases my projects, skills, experience, and creative work.
+          </p>
+        </div>
+      </section>
 
-          <a href={resume} target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-blue-600 text-white rounded-xl">
-            View Resume
-          </a>
+      {/* Divider */}
+      <div className={`w-16 h-1 rounded-full mx-auto mb-16 ${darkMode ? "bg-slate-700" : "bg-slate-300"}`} />
 
-          <a href="mailto:gmgjramirez@gmail.com" className="px-6 py-3 bg-blue-600 text-white rounded-xl">
-            Email Me
-          </a>
+      {/* Tech Stack Section */}
+      <section className="px-10 pb-20 text-center max-w-4xl mx-auto">
+        <h3 className={`text-4xl font-semibold mb-2 ${darkMode ? "text-white" : "text-slate-900"}`}>
+          Tech Stack
+        </h3>
+        <p className={`text-lg mb-10 ${darkMode ? "text-slate-400" : "text-slate-500"}`}>
+          Tools and technologies I work with
+        </p>
+
+        <div className="mb-8 text-left">
+          <p className={`text-sm font-semibold uppercase tracking-widest mb-4 ${darkMode ? "text-slate-500" : "text-slate-400"}`}>
+            Development
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {devSkills.map((skill) => skillCard(skill))}
+          </div>
         </div>
 
-        <h2 className="text-5xl font-bold">Hello, I'm Gustavo Juscamayta</h2>
+        <div className="mb-8 text-left">
+          <p className={`text-sm font-semibold uppercase tracking-widest mb-4 ${darkMode ? "text-slate-500" : "text-slate-400"}`}>
+            Creative & Media
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {creativeSkills.map((skill) => skillCard(skill))}
+          </div>
+        </div>
+
+        <div className="text-left">
+          <p className={`text-sm font-semibold uppercase tracking-widest mb-4 ${darkMode ? "text-slate-500" : "text-slate-400"}`}>
+            Languages
+          </p>
+          <div className="flex flex-wrap gap-3">
+            {languageSkills.map((skill) => skillCard(skill, true))}
+          </div>
+        </div>
       </section>
+
+      {/* Divider */}
+      <div className={`w-16 h-1 rounded-full mx-auto mb-16 ${darkMode ? "bg-slate-700" : "bg-slate-300"}`} />
+
+      {/* Projects */}
+      <section className="px-10 pb-20 text-center max-w-5xl mx-auto">
+        <h3 className={`text-4xl font-semibold mb-2 ${darkMode ? "text-white" : "text-slate-900"}`}>
+          Projects
+        </h3>
+        <p className={`text-lg mb-10 ${darkMode ? "text-slate-400" : "text-slate-500"}`}>
+          A few things I've worked on
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className={`p-7 rounded-2xl shadow-md border text-left transition-colors duration-500 flex flex-col ${
+              darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
+            }`}
+          >
+            <h4 className={`text-2xl font-semibold mb-3 ${darkMode ? "text-white" : "text-slate-900"}`}>
+              UCF Student Swap
+            </h4>
+            <p className={`text-lg mb-5 flex-1 ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+              A collaborative student marketplace platform built with a team for UCF students to buy, sell, and trade items within their campus community.
+            </p>
+            <a
+              href="https://github.com/Koicob/CIS-4004-Group-46"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-auto inline-block text-center px-5 py-2.5 rounded-xl text-base font-medium border transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-500"
+                  : "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              View Project
+            </a>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className={`p-7 rounded-2xl shadow-md border text-left transition-colors duration-500 flex flex-col ${
+              darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
+            }`}
+          >
+            <h4 className={`text-2xl font-semibold mb-3 ${darkMode ? "text-white" : "text-slate-900"}`}>
+              Pokemon Finder
+            </h4>
+            <p className={`text-lg mb-5 flex-1 ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+              A web app using the PokeAPI to search for Pokemon, browse their moves, and preview their sounds with a built-in play button.
+            </p>
+            <a
+              href="https://github.com/GustavoJus/Asynchronous"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-auto inline-block text-center px-5 py-2.5 rounded-xl text-base font-medium border transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-500"
+                  : "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              View Project
+            </a>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className={`p-7 rounded-2xl shadow-md border text-left transition-colors duration-500 flex flex-col ${
+              darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
+            }`}
+          >
+            <h4 className={`text-2xl font-semibold mb-3 ${darkMode ? "text-white" : "text-slate-900"}`}>
+              Two-Tier Client-Server App
+            </h4>
+            <p className={`text-lg mb-5 flex-1 ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
+              A Java GUI application connected to a MySQL server via JDBC, allowing clients with varying permissions to execute SQL commands and monitor databases.
+            </p>
+            <a
+              href="https://github.com/GustavoJus/Two-Tier-Client-Server-App"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`mt-auto inline-block text-center px-5 py-2.5 rounded-xl text-base font-medium border transition-all duration-300 hover:scale-105 ${
+                darkMode
+                  ? "bg-blue-600 text-white border-blue-600 hover:bg-blue-500"
+                  : "bg-blue-600 text-white border-blue-600 hover:bg-blue-700"
+              }`}
+            >
+              View Project
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className={`text-center p-6 mt-10 transition-colors duration-500 ${
+        darkMode ? "bg-slate-800 text-slate-400" : "bg-slate-900 text-slate-400"
+      }`}>
+        <p className="text-lg">© 2026 Gustavo Juscamayta. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
