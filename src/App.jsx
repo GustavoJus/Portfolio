@@ -1,3 +1,4 @@
+const resume = `${import.meta.env.BASE_URL}Gustavo_Juscamayta_Resume.pdf`;
 import { useState } from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Portfolio from "./Portfolio";
