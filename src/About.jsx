@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Globe, Wrench, Video, Gamepad2, Cpu, Trophy, HeadsetIcon, Server } from "lucide-react";
 
+const resume = `${import.meta.env.BASE_URL}Gustavo_Juscamayta_Resume.pdf`;
+
 const valueBoxes = [
   {
     icon: <Globe size={28} />,
@@ -66,7 +68,7 @@ function SportsCard({ darkMode }) {
             </span>
           )}
         </span>
-        {" "}and volleyball regularly and I'm always open to picking up new sports. Staying active keeps me sharp and competitive — both on the field and in front of a screen.
+        {" "}and volleyball regularly and I'm always open to picking up new sports.
       </p>
     </motion.div>
   );
@@ -76,20 +78,17 @@ const otherInterests = [
   {
     icon: <Gamepad2 size={28} />,
     title: "Gaming",
-    description:
-      "I'm an avid gamer with a love for immersive and competitive titles. My current favorites are Counter-Strike, Cyberpunk 2077, Rocket League, and the Resident Evil franchise.",
+    description: "I'm an avid gamer with a love for immersive and competitive titles.",
   },
   {
     icon: <Cpu size={28} />,
     title: "Building PCs & Tech",
-    description:
-      "I love building custom PCs from scratch and keeping up with every new piece of hardware and software that drops each year. Exploring emerging technology is both a hobby and a mindset.",
+    description: "I love building custom PCs and exploring new technology.",
   },
   {
     icon: <Server size={28} />,
     title: "Game Servers & Systems",
-    description:
-      "I'm passionate about setting up and managing game servers, and I'm actively learning about macOS, Linux, and virtual machines. Understanding different operating environments is something I genuinely enjoy exploring.",
+    description: "I'm passionate about Linux, macOS, and server setups.",
   },
 ];
 
@@ -109,10 +108,8 @@ export default function About({ darkMode, setDarkMode, activePage, setActivePage
       }`}
       style={{ fontFamily: "Bitter, serif" }}
     >
-
-      {/* Navigation */}
       <nav
-        className={`flex justify-between items-center px-6 py-5 border-b shadow-sm transition-colors duration-500 ${
+        className={`flex justify-between items-center px-6 py-5 border-b shadow-sm ${
           darkMode ? "bg-slate-800 border-slate-700" : "bg-white border-slate-200"
         }`}
       >
@@ -121,12 +118,12 @@ export default function About({ darkMode, setDarkMode, activePage, setActivePage
             <button
               key={item}
               onClick={() => handleNav(item)}
-              className={`px-6 py-2.5 text-base rounded-xl border transition-all duration-300 hover:scale-105 ${
+              className={`px-6 py-2.5 rounded-xl border ${
                 activePage === item
                   ? "bg-blue-600 text-white border-blue-600"
                   : darkMode
-                  ? "border-slate-600 text-slate-300 hover:bg-slate-100 hover:text-slate-900"
-                  : "border-slate-300 text-slate-700 hover:bg-slate-800 hover:text-white"
+                  ? "border-slate-600 text-slate-300"
+                  : "border-slate-300 text-slate-700"
               }`}
             >
               {item}
@@ -136,122 +133,36 @@ export default function About({ darkMode, setDarkMode, activePage, setActivePage
 
         <button
           onClick={() => setDarkMode(!darkMode)}
-          className={`px-6 py-2.5 text-base rounded-xl border transition-all duration-300 hover:scale-105 ${
-            darkMode
-              ? "border-slate-600 text-slate-300 hover:bg-slate-100 hover:text-slate-900"
-              : "border-slate-300 text-slate-700 hover:bg-slate-800 hover:text-white"
-          }`}
+          className="px-6 py-2.5 rounded-xl border"
         >
           {darkMode ? "Light Mode" : "Dark Mode"}
         </button>
       </nav>
 
-      {/* Hero Headline */}
-      <section className="flex flex-col items-center justify-center text-center px-10 py-20 gap-6">
+      <section className="text-center px-10 py-20">
         <motion.h1
-          className={`text-5xl font-bold leading-tight max-w-3xl ${darkMode ? "text-white" : "text-slate-900"}`}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className={`text-5xl font-bold ${darkMode ? "text-white" : "text-slate-900"}`}
         >
           Bilingual Developer & Creative Thinker
         </motion.h1>
-        <div className={`w-16 h-1 rounded-full ${darkMode ? "bg-blue-500" : "bg-blue-600"}`} />
-      </section>
 
-      {/* My Story */}
-      <section className="px-10 pb-20 max-w-3xl mx-auto">
-        <h2 className={`text-3xl font-semibold mb-8 text-center ${darkMode ? "text-white" : "text-slate-900"}`}>
-          My Story
-        </h2>
-        <motion.div
-          className="flex flex-col gap-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <p className={`text-xl leading-relaxed ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-            Born and raised in Lima, Peru, my curiosity for technology started early and eventually brought me to the
-            University of Central Florida, where I am pursuing my Bachelor's in Information Technology. Growing up
-            in a multicultural environment shaped my perspective and gave me the drive to keep learning across
-            every discipline I touch.
-          </p>
-          <p className={`text-xl leading-relaxed ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-            I chose IT for the satisfaction of building something functional from scratch. Whether it's a Java
-            application, a database-driven system, or a full-stack web platform, I enjoy the logic behind it all.
-            My background in video editing and design with Sony Vegas and Photoshop adds a creative layer to
-            my technical work — allowing me to build applications that are not just powerful, but polished and
-            professional.
-          </p>
-        </motion.div>
-      </section>
+        <div
+          className={`w-16 h-1 mx-auto mt-4 ${
+            darkMode ? "bg-blue-500" : "bg-blue-600"
+          }`}
+        />
 
-      {/* Divider */}
-      <div className={`w-16 h-1 rounded-full mx-auto mb-16 ${darkMode ? "bg-slate-700" : "bg-slate-300"}`} />
-
-      {/* Value Grid */}
-      <section className="px-10 pb-20 max-w-7xl mx-auto text-center">
-        <h2 className={`text-3xl font-semibold mb-2 ${darkMode ? "text-white" : "text-slate-900"}`}>
-          What I Bring to the Table
-        </h2>
-        <p className={`text-lg mb-10 ${darkMode ? "text-slate-400" : "text-slate-500"}`}>
-          The skills and perspectives that set me apart
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {valueBoxes.map((box, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className={`p-7 rounded-2xl shadow-md border text-left transition-colors duration-500 flex flex-col gap-4 ${
-                darkMode ? "bg-slate-800 border-slate-600" : "bg-white border-slate-400"
-              }`}
-            >
-              <div className={darkMode ? "text-blue-400" : "text-blue-600"}>{box.icon}</div>
-              <h4 className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>{box.title}</h4>
-              <p className={`text-lg leading-relaxed ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{box.description}</p>
-            </motion.div>
-          ))}
+        <div className="flex justify-center gap-4 mt-8">
+          <a
+            href={resume}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-3 rounded-xl bg-blue-600 text-white font-medium hover:scale-105 transition"
+          >
+            View Resume
+          </a>
         </div>
       </section>
-
-      {/* Divider */}
-      <div className={`w-16 h-1 rounded-full mx-auto mb-16 ${darkMode ? "bg-slate-700" : "bg-slate-300"}`} />
-
-      {/* Personal Interests */}
-      <section className="px-10 pb-24 max-w-7xl mx-auto text-center">
-        <h2 className={`text-3xl font-semibold mb-2 ${darkMode ? "text-white" : "text-slate-900"}`}>
-          Outside the Code
-        </h2>
-        <p className={`text-lg mb-10 ${darkMode ? "text-slate-400" : "text-slate-500"}`}>
-          A few things I'm passionate about beyond the screen
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <SportsCard darkMode={darkMode} />
-          {otherInterests.map((item, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              className={`p-7 rounded-2xl shadow-md border text-left transition-colors duration-500 flex flex-col gap-4 ${
-                darkMode ? "bg-slate-800 border-slate-600" : "bg-white border-slate-400"
-              }`}
-            >
-              <div className={darkMode ? "text-blue-400" : "text-blue-600"}>{item.icon}</div>
-              <h4 className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>{item.title}</h4>
-              <p className={`text-lg leading-relaxed ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{item.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className={`text-center p-6 mt-10 transition-colors duration-500 ${
-        darkMode ? "bg-slate-800 text-slate-400" : "bg-slate-900 text-slate-400"
-      }`}>
-        <p className="text-lg">© 2026 Gustavo Juscamayta. All rights reserved.</p>
-      </footer>
-
     </div>
   );
 }
