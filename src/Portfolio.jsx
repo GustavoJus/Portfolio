@@ -15,7 +15,8 @@ import {
   Languages,
 } from "lucide-react";
 import myPhoto from "./assets/myphoto.jpeg";
-import resume from "./assets/Gustavo_Juscamayta_Resume.pdf";
+
+const RESUME_PATH = "/Gustavo_Juscamayta_Resume.pdf";
 
 const devSkills = [
   { name: "HTML", icon: <Globe size={22} /> },
@@ -71,7 +72,6 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
       }`}
       style={{ fontFamily: "Bitter, serif" }}
     >
-
       {/* Navigation */}
       <nav
         className={`flex justify-between items-center px-6 py-5 border-b shadow-sm transition-colors duration-500 ${
@@ -135,7 +135,7 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
               LinkedIn
             </a>
             <a
-              href={resume}
+              href={RESUME_PATH}
               target="_blank"
               rel="noopener noreferrer"
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
@@ -306,7 +306,6 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
       }`}>
         <p className="text-lg">© 2026 Gustavo Juscamayta. All rights reserved.</p>
       </footer>
-
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import resume from "./assets/Gustavo_Juscamayta_Resume.pdf";
+
+const RESUME_PATH = "/Gustavo_Juscamayta_Resume.pdf";
 
 export default function Resume({ darkMode, setDarkMode, activePage, setActivePage }) {
   const navigate = useNavigate();
@@ -48,7 +49,6 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
       }`}
       style={{ fontFamily: "Bitter, serif" }}
     >
-
       {/* Navigation */}
       <nav
         className={`flex justify-between items-center px-6 py-5 border-b shadow-sm transition-colors duration-500 ${
@@ -99,7 +99,7 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
         </p>
         <div className="flex gap-4 mt-2">
           <a
-            href={resume}
+            href={RESUME_PATH}
             download
             className={`px-6 py-3 rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
               darkMode
@@ -110,7 +110,7 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
             Download Resume (PDF)
           </a>
           <a
-            href={resume}
+            href={RESUME_PATH}
             target="_blank"
             rel="noopener noreferrer"
             className={`px-6 py-3 rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
@@ -138,84 +138,63 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
           </>
         )}
 
-        {/* Education & Experience side by side */}
+        {/* Education & Experience */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          {/* Education */}
           {card(
             <>
               {sectionTitle("Education")}
               <div className="flex flex-col gap-6">
                 <div>
-                  <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                    University of Central Florida
-                  </p>
-                  <p className={`text-lg font-medium text-blue-500`}>B.S. in Information Technology</p>
+                  <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>University of Central Florida</p>
+                  <p className="text-lg font-medium text-blue-500">B.S. in Information Technology</p>
                   <p className={`text-base ${darkMode ? "text-slate-400" : "text-slate-500"}`}>Expected 2026</p>
                 </div>
                 <div>
-                  <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                    AWS Academy Graduate
-                  </p>
-                  <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                    Cloud Foundations · Architecting · Security
-                  </p>
+                  <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>AWS Academy Graduate</p>
+                  <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>Cloud Foundations · Architecting · Security</p>
                   <p className={`text-base ${darkMode ? "text-slate-400" : "text-slate-500"}`}>2025</p>
                 </div>
                 <div>
-                  <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                    Valencia College
-                  </p>
-                  <p className={`text-lg font-medium text-blue-500`}>Associate of Arts</p>
+                  <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>Valencia College</p>
+                  <p className="text-lg font-medium text-blue-500">Associate of Arts</p>
                   <p className={`text-base ${darkMode ? "text-slate-400" : "text-slate-500"}`}>2022</p>
                 </div>
               </div>
             </>
           )}
 
-          {/* Experience */}
           {card(
             <>
               {sectionTitle("Work Experience")}
               <div className="flex flex-col gap-6">
-
                 <div>
                   <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>Lowe's</p>
-                  <p className={`text-base text-blue-500 font-medium`}>Customer Service Associate</p>
+                  <p className="text-base text-blue-500 font-medium">Customer Service Associate</p>
                   <p className={`text-sm mb-2 ${darkMode ? "text-slate-500" : "text-slate-400"}`}>Feb 2026 – Present | Fern Park, FL</p>
                   <ul className="list-disc list-inside flex flex-col gap-1">
-                    {[
-                      "Assist customers with product selection, order pickup, and issue resolution.",
+                    {["Assist customers with product selection, order pickup, and issue resolution.",
                       "Troubleshoot POS systems, handheld scanners, and order management systems.",
-                      "Collaborate with team members to resolve inventory discrepancies efficiently.",
-                    ].map(bullet)}
+                      "Collaborate with team members to resolve inventory discrepancies efficiently."].map(bullet)}
                   </ul>
                 </div>
-
                 <div>
                   <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>Walmart Inc</p>
-                  <p className={`text-base text-blue-500 font-medium`}>Customer Service Associate</p>
+                  <p className="text-base text-blue-500 font-medium">Customer Service Associate</p>
                   <p className={`text-sm mb-2 ${darkMode ? "text-slate-500" : "text-slate-400"}`}>May 2022 – June 2025 | Orlando, FL</p>
                   <ul className="list-disc list-inside flex flex-col gap-1">
-                    {[
-                      "Provided technical support for point-of-sale systems and digital transactions.",
-                      "Troubleshot hardware and software issues for self-checkout systems.",
-                    ].map(bullet)}
+                    {["Provided technical support for point-of-sale systems and digital transactions.",
+                      "Troubleshot hardware and software issues for self-checkout systems."].map(bullet)}
                   </ul>
                 </div>
-
                 <div>
                   <p className={`text-xl font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>McDonald's Corporation</p>
-                  <p className={`text-base text-blue-500 font-medium`}>Crew Member</p>
+                  <p className="text-base text-blue-500 font-medium">Crew Member</p>
                   <p className={`text-sm mb-2 ${darkMode ? "text-slate-500" : "text-slate-400"}`}>Oct 2020 – Apr 2022 | Orlando, FL</p>
                   <ul className="list-disc list-inside flex flex-col gap-1">
-                    {[
-                      "Assisted with troubleshooting POS systems and network connectivity issues.",
-                      "Trained new employees on system usage and operations.",
-                    ].map(bullet)}
+                    {["Assisted with troubleshooting POS systems and network connectivity issues.",
+                      "Trained new employees on system usage and operations."].map(bullet)}
                   </ul>
                 </div>
-
               </div>
             </>
           )}
@@ -227,26 +206,14 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
             {sectionTitle("Technical Skills")}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-3">
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  {label("IT Support & Troubleshooting: ")}Diagnosing and resolving hardware, software, and network issues.
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  {label("Operating Systems: ")}Windows 10/11
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  {label("Networking: ")}TCP/IP, DNS, DHCP, Subnetting
-                </p>
+                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{label("IT Support & Troubleshooting: ")}Diagnosing and resolving hardware, software, and network issues.</p>
+                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{label("Operating Systems: ")}Windows 10/11</p>
+                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{label("Networking: ")}TCP/IP, DNS, DHCP, Subnetting</p>
               </div>
               <div className="flex flex-col gap-3">
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  {label("Productivity & Systems: ")}Microsoft 365, Active Directory
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  {label("Languages: ")}Bilingual — English & Spanish
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  {label("Interpersonal: ")}Strong communicator, team collaborator, and customer-focused professional.
-                </p>
+                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{label("Productivity & Systems: ")}Microsoft 365, Active Directory</p>
+                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{label("Languages: ")}Bilingual — English & Spanish</p>
+                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{label("Interpersonal: ")}Strong communicator, team collaborator, and customer-focused professional.</p>
               </div>
             </div>
           </>
@@ -257,57 +224,21 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
           <>
             {sectionTitle("Projects")}
             <div className="flex flex-col gap-5">
-              <div>
-                <p className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                  Barbershop Appointment Website
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  Designed and developed a fully functional website for a barbershop offering online appointment
-                  scheduling services. Features a clean UI for browsing services, selecting time slots, and booking
-                  appointments.
-                </p>
-              </div>
-              <div>
-                <p className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                  Google TPU — Research Presentation
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  Conducted an in-depth research presentation on Google's Tensor Processing Unit (TPU). Covered its
-                  development timeline, technical architecture, social and professional impact, and ethical, legal, and
-                  environmental considerations.
-                </p>
-              </div>
-              <div>
-                <p className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                  UCF Student Swap
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  A collaborative student marketplace platform built with a team for UCF students to buy, sell, and
-                  trade items within their campus community.
-                </p>
-              </div>
-              <div>
-                <p className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                  Pokemon Finder
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  A web app using the PokeAPI to search for Pokemon, browse their moves, and preview their sounds
-                  with a built-in play button.
-                </p>
-              </div>
-              <div>
-                <p className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>
-                  Two-Tier Client-Server App
-                </p>
-                <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>
-                  A Java GUI application connected to a MySQL server via JDBC, allowing clients with varying
-                  permissions to execute SQL commands and monitor databases.
-                </p>
-              </div>
+              {[
+                { title: "Barbershop Appointment Website", desc: "Designed and developed a fully functional website for a barbershop offering online appointment scheduling services. Features a clean UI for browsing services, selecting time slots, and booking appointments." },
+                { title: "Google TPU — Research Presentation", desc: "Conducted an in-depth research presentation on Google's Tensor Processing Unit (TPU). Covered its development timeline, technical architecture, social and professional impact, and ethical, legal, and environmental considerations." },
+                { title: "UCF Student Swap", desc: "A collaborative student marketplace platform built with a team for UCF students to buy, sell, and trade items within their campus community." },
+                { title: "Pokemon Finder", desc: "A web app using the PokeAPI to search for Pokemon, browse their moves, and preview their sounds with a built-in play button." },
+                { title: "Two-Tier Client-Server App", desc: "A Java GUI application connected to a MySQL server via JDBC, allowing clients with varying permissions to execute SQL commands and monitor databases." },
+              ].map((p, i) => (
+                <div key={i}>
+                  <p className={`text-lg font-semibold ${darkMode ? "text-white" : "text-slate-900"}`}>{p.title}</p>
+                  <p className={`text-lg ${darkMode ? "text-slate-400" : "text-slate-600"}`}>{p.desc}</p>
+                </div>
+              ))}
             </div>
           </>
         )}
-
       </div>
 
       {/* Footer */}
@@ -316,7 +247,6 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
       }`}>
         <p className="text-lg">© 2026 Gustavo Juscamayta. All rights reserved.</p>
       </footer>
-
     </div>
   );
 }
