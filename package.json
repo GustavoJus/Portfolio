@@ -1,7 +1,7 @@
 {
   "name": "my-portfolio",
-  "homepage": "https://GustavoJus.github.io/Portfolio/#/"
-  "private": "true",
+  "homepage": "https://GustavoJus.github.io/Portfolio/#/",
+  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
