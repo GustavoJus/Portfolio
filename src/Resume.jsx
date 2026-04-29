@@ -111,7 +111,6 @@ export default function Resume({ darkMode, setDarkMode, activePage, setActivePag
           </a>
           <a
             href={RESUME_PATH}
-            target="_blank"
             rel="noopener noreferrer"
             className={`px-6 py-3 rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
               darkMode
