@@ -15,7 +15,7 @@ import twoTier3 from "./assets/twotier3.png";
 
 const projects = [
   {
-    title: "UCF Student Swap",
+    title: "UCF Knight Swap",
     description:
       "Knight Swap is a full-stack student marketplace platform built collaboratively for the UCF community. Students can browse, buy, sell, and trade items across categories like Tech, Textbooks, Furniture, Clothes, and more. The platform features a clean storefront with category filters, item listings with photos and prices, a sign-up and login system restricted to UCF-verified accounts, and a mission to help students save money and reduce waste on campus.",
     tech: ["React", "Node.js", "MySQL", "CSS"],
