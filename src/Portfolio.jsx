@@ -136,7 +136,6 @@ export default function Portfolio({ darkMode, setDarkMode, activePage, setActive
             </a>
             <a
               href={RESUME_PATH}
-              target="_blank"
               rel="noopener noreferrer"
               className={`px-7 py-3.5 text-lg rounded-xl font-medium border transition-all duration-300 hover:scale-105 ${
                 darkMode
